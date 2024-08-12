@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:flame/game.dart';
 import 'package:flame/sprite.dart';
 import 'package:flame/widgets.dart';
@@ -33,11 +35,18 @@ class CharacterComponent extends StatefulWidget {
 
 class _CharacterComponentState extends State<CharacterComponent> {
   CharacterAnimation? _animation;
+  ui.Image? _spriteSheet;
 
   @override
   void initState() {
     super.initState();
     _setupAnimation();
+  }
+
+  @override
+  void dispose() {
+    _spriteSheet?.dispose();
+    super.dispose();
   }
 
   @override
@@ -96,6 +105,8 @@ class _CharacterComponentState extends State<CharacterComponent> {
 
     final spriteSheet = await createSpriteSheet(bodyimages);
     if (spriteSheet == null) return null;
+
+    _spriteSheet = spriteSheet;
 
     final hasIdle = widget.animationSet.contains(CharacterAnimationSet.idle);
     final hasWalk = widget.animationSet.contains(CharacterAnimationSet.walk);

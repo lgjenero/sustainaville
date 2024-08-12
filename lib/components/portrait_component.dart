@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:flame/game.dart';
 import 'package:flame/sprite.dart';
 import 'package:flame/widgets.dart';
@@ -22,6 +24,7 @@ class PortraitComponent extends StatefulWidget {
 
 class _PortraitComponentState extends State<PortraitComponent> {
   PortraitAnimation? _animation;
+  ui.Image? _spriteSheet;
 
   @override
   void initState() {
@@ -40,6 +43,7 @@ class _PortraitComponentState extends State<PortraitComponent> {
     super.didUpdateWidget(oldWidget);
 
     if (oldWidget.character != widget.character) {
+      _spriteSheet?.dispose();
       _createAnimation().then((animation) {
         setState(() {
           animation?.play(PortraitAnimationEnum.idle);
@@ -47,6 +51,12 @@ class _PortraitComponentState extends State<PortraitComponent> {
         });
       });
     }
+  }
+
+  @override
+  void dispose() {
+    _spriteSheet?.dispose();
+    super.dispose();
   }
 
   @override
@@ -82,6 +92,8 @@ class _PortraitComponentState extends State<PortraitComponent> {
 
     final spriteSheet = await createSpriteSheet(bodyimages);
     if (spriteSheet == null) return null;
+
+    _spriteSheet = spriteSheet;
 
     return PortraitAnimation(
       idle: SpriteAnimation.fromFrameData(spriteSheet, _idle),
