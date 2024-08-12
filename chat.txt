@@ -1,0 +1,16 @@
+{
+    representatives: [
+        {
+            representativeId: Id of the represntative
+            support: number from -10 to 10 indicating how did the action affect the support of the representative for the player, 0 if no change
+            response: null | how did the representative respond verbaly
+        } 
+    ],
+    constituency: number from -10 to 10 indicating how did the action affect the support of the constituency for the player, 0 if no change
+    publicOpinion: number from -10 to 10 indicating how did the action affect the public opinio nof the player, 0 if no change
+    bill: {
+        billId: Id of the bill
+        passed: null | true | false
+        percentage: number 0-100 how much of the bill has been passed in regards to the initial one
+    }
+}

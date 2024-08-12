@@ -1,0 +1,39 @@
+{
+    bills: [
+        {
+            id:  unique Id of the bill
+            name: name of the bill
+            description: What does the bill want to achieve and how (what funding, cuts, etc. ar needed)
+            representativeId: Id of the sponsor of the bill
+        }
+    ]
+    conflicts: [
+        {
+            billIds: [ list of bill Ids ]
+            conflict: description of the conflict
+        }
+    ]
+}
+
+
+{
+    representative_bills: [
+        {
+            representativeId: Id of the sponsor of the bill
+            bills: [
+                {
+                    id:  unique Id of the bill
+                    name: name of the bill
+                    description: What does the bill want to achieve and how (what funding, cuts, etc. ar needed)
+                    representativeId: Id of the sponsor of the bill
+                }
+            ]
+        }
+    ]
+    conflicts: [
+        {
+            billIds: [ list of bill Ids ]
+            conflict: description of the conflict
+        }
+    ]
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "130130343340",
+    "project_id": "democracy-simulator",
+    "storage_bucket": "democracy-simulator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:130130343340:android:3ecbc8540a7586a447f609",
+        "android_client_info": {
+          "package_name": "co.cococode.democracysimulator"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuqecTbL5bRNOjQgOZpWW0luPo_ICmAkc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
