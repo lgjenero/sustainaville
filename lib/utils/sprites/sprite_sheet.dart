@@ -1,5 +1,6 @@
 import 'dart:ui' as ui;
 
+import 'package:flame/flame.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -8,9 +9,9 @@ Future<ui.Image?> createSpriteSheet(List<String> spriteSheets) async {
 
   final List<ui.Image> images;
   try {
-    final futures = spriteSheets.map((e) => _fetchToMemory(e)).toList();
-    images = await Future.wait(futures);
-    // images = await Flame.images.loadAll(spriteSheets);
+    // final futures = spriteSheets.map((e) => _fetchToMemory(e)).toList();
+    // images = await Future.wait(futures);
+    images = await Flame.images.loadAll(spriteSheets);
   } catch (_) {
     return null;
   }
@@ -28,9 +29,9 @@ Future<ui.Image?> createSpriteSheet(List<String> spriteSheets) async {
 
   final width = images.first.width;
   final height = images.first.height;
-  for (final e in images) {
-    e.dispose();
-  }
+  // for (final e in images) {
+  //   e.dispose();
+  // }
 
   return await picture.toImage(width, height);
 }
