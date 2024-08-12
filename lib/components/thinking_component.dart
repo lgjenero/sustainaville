@@ -19,13 +19,13 @@ enum ThinkingType {
   minus(Offset(0, 6), Offset(1, 6)),
   plus(Offset(4, 6), Offset(5, 6)),
   note(Offset(6, 6), Offset(7, 6)),
-  music(Offset(8, 7), Offset(9, 7)),
+  music(Offset(6, 7), Offset(7, 7)),
   knife(Offset(2, 7), Offset(5, 7)),
   bloddyKnife(Offset(3, 7), Offset(4, 7)),
   moonDark(Offset(4, 8), Offset(5, 8)),
   moonBright(Offset(6, 8), Offset(7, 8)),
   dots(Offset(2, 9), Offset(3, 9)),
-  water(Offset(4, 9), Offset(5, 9));
+  water(Offset(6, 9), Offset(7, 9));
 
   final Offset first;
   final Offset second;
