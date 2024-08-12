@@ -136,7 +136,12 @@ class _LobbyGroupOfficeComponentState extends State<LobbyGroupOfficeComponent> w
           child: child!,
         );
       },
-      child: CharacterComponent(character: widget.visitor!, play: true, animation: animationEnum),
+      child: CharacterComponent(
+        character: widget.visitor!,
+        play: true,
+        animation: animationEnum,
+        animationSet: const {CharacterAnimationSet.idle, CharacterAnimationSet.walk},
+      ),
     );
   }
 

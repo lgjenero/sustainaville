@@ -53,6 +53,7 @@ class _ErrorComponentState extends State<ErrorComponent> with SingleTickerProvid
                 character: _character,
                 play: true,
                 animation: CharacterAnimationEnum.idleDown,
+                animationSet: const {},
               ),
             ),
             if (_leakAnimation != null)

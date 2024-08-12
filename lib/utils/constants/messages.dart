@@ -1,5 +1,5 @@
 const introMessage = '''
-Welcome to Democracy Simulator: Green Agenda!
+Welcome to Sustainaville: A Democracy Simulator!
 
 Step into the shoes of a passionate representative in a dynamic parliament, where every decision shapes the future. Your mission: to drive the state towards a sustainable, eco-friendly future.
 

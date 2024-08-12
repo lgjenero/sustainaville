@@ -9,12 +9,14 @@ class ThinkingCharacterComponent extends StatelessWidget {
   final bool play;
   final CharacterAnimationEnum animation;
   final ThinkingType? thinkingType;
+  final Set<CharacterAnimationSet> animationSet;
 
   const ThinkingCharacterComponent({
     required this.character,
     this.play = false,
     this.animation = CharacterAnimationEnum.idleDown,
     this.thinkingType,
+    this.animationSet = const {CharacterAnimationSet.idle},
     super.key,
   });
 
@@ -23,7 +25,7 @@ class ThinkingCharacterComponent extends StatelessWidget {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        CharacterComponent(character: character, play: play, animation: animation),
+        CharacterComponent(character: character, play: play, animation: animation, animationSet: animationSet),
         if (thinkingType != null)
           Positioned(
             left: 24,

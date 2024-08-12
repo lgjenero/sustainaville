@@ -55,6 +55,7 @@ class _BillCreationViewState extends ConsumerState<BillCreationView> {
                         character: e,
                         play: true,
                         animation: CharacterAnimationEnum.reading,
+                        animationSet: const {CharacterAnimationSet.read},
                       ),
                     );
                   }).toList(),

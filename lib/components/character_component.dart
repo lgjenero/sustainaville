@@ -6,15 +6,24 @@ import 'package:sustainaville/data/character.dart';
 import 'package:sustainaville/utils/animations/character_animation.dart';
 import 'package:sustainaville/utils/sprites/sprite_sheet.dart';
 
+enum CharacterAnimationSet {
+  idle,
+  walk,
+  read,
+  sit,
+}
+
 class CharacterComponent extends StatefulWidget {
   final Character character;
   final bool play;
   final CharacterAnimationEnum animation;
+  final Set<CharacterAnimationSet> animationSet;
 
   const CharacterComponent({
     required this.character,
     this.play = false,
     this.animation = CharacterAnimationEnum.idleDown,
+    this.animationSet = const {CharacterAnimationSet.idle},
     super.key,
   });
 
@@ -88,20 +97,25 @@ class _CharacterComponentState extends State<CharacterComponent> {
     final spriteSheet = await createSpriteSheet(bodyimages);
     if (spriteSheet == null) return null;
 
+    final hasIdle = widget.animationSet.contains(CharacterAnimationSet.idle);
+    final hasWalk = widget.animationSet.contains(CharacterAnimationSet.walk);
+    final hasRead = widget.animationSet.contains(CharacterAnimationSet.read);
+    final hasSit = widget.animationSet.contains(CharacterAnimationSet.sit);
+
     return CharacterAnimation(
-      idleLeft: SpriteAnimation.fromFrameData(spriteSheet, _idleLeft),
-      idleUp: SpriteAnimation.fromFrameData(spriteSheet, _idleUp),
+      idleLeft: hasIdle ? SpriteAnimation.fromFrameData(spriteSheet, _idleLeft) : null,
+      idleUp: hasIdle ? SpriteAnimation.fromFrameData(spriteSheet, _idleUp) : null,
       idleDown: SpriteAnimation.fromFrameData(spriteSheet, _idleDown),
-      idleRight: SpriteAnimation.fromFrameData(spriteSheet, _idleRight),
-      runLeft: SpriteAnimation.fromFrameData(spriteSheet, _runLeft),
-      runUp: SpriteAnimation.fromFrameData(spriteSheet, _runUp),
-      runDown: SpriteAnimation.fromFrameData(spriteSheet, _runDown),
-      runRight: SpriteAnimation.fromFrameData(spriteSheet, _runRight),
-      reading: SpriteAnimation.fromFrameData(spriteSheet, _reading),
-      sitLeft: SpriteAnimation.fromFrameData(spriteSheet, _sitLeft),
-      sitRight: SpriteAnimation.fromFrameData(spriteSheet, _sitRight),
-      sitLeftNoLegs: SpriteAnimation.fromFrameData(spriteSheet, _sitLeftNoLegs),
-      sitRightNoLegs: SpriteAnimation.fromFrameData(spriteSheet, _sitRightNoLegs),
+      idleRight: hasIdle ? SpriteAnimation.fromFrameData(spriteSheet, _idleRight) : null,
+      runLeft: hasWalk ? SpriteAnimation.fromFrameData(spriteSheet, _runLeft) : null,
+      runUp: hasWalk ? SpriteAnimation.fromFrameData(spriteSheet, _runUp) : null,
+      runDown: hasWalk ? SpriteAnimation.fromFrameData(spriteSheet, _runDown) : null,
+      runRight: hasWalk ? SpriteAnimation.fromFrameData(spriteSheet, _runRight) : null,
+      reading: hasRead ? SpriteAnimation.fromFrameData(spriteSheet, _reading) : null,
+      sitLeft: hasSit ? SpriteAnimation.fromFrameData(spriteSheet, _sitLeft) : null,
+      sitRight: hasSit ? SpriteAnimation.fromFrameData(spriteSheet, _sitRight) : null,
+      sitLeftNoLegs: hasSit ? SpriteAnimation.fromFrameData(spriteSheet, _sitLeftNoLegs) : null,
+      sitRightNoLegs: hasSit ? SpriteAnimation.fromFrameData(spriteSheet, _sitRightNoLegs) : null,
     );
   }
 

@@ -106,6 +106,7 @@ class _TvStudioComponentState extends State<TvStudioComponent> {
                 play: true,
                 animation: CharacterAnimationEnum.sitLeftNoLegs,
                 thinkingType: _talkingAnimationPerCharacter[_host],
+                animationSet: const {CharacterAnimationSet.sit},
               ),
             ),
             ..._audience.mapIndexed((index, e) {

@@ -129,7 +129,12 @@ class _RoomComponentState extends State<RoomComponent> with SingleTickerProvider
           child: child!,
         );
       },
-      child: CharacterComponent(character: widget.visitor!, play: true, animation: animationEnum),
+      child: CharacterComponent(
+        character: widget.visitor!,
+        play: true,
+        animation: animationEnum,
+        animationSet: const {CharacterAnimationSet.idle, CharacterAnimationSet.walk},
+      ),
     );
   }
 
