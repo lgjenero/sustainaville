@@ -139,7 +139,7 @@ One of the representative must be focused on sustainability and green transition
 This will be the player's representative.
 Make the representatives adverserial towards the player.
 Make sure you provide ALL fields that are mandatory in the output.
-Return the Id of the player representative.
+Always add Id of the player representative in the results.
 ''';
 
 final gameTemplateSystemBills = '''
